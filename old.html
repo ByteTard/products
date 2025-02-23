@@ -1,23 +1,21 @@
-
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="ROBOTS" content="NOINDEX, FOLLOW" />
-    <link rel="stylesheet" type="text/css" href="/style.css" />
-    <script src="/js.js"></script>
-    <link rel="stylesheet" type="text/css" href="style/Cobalt.min.css?v=31" />
-    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:900,400" rel="stylesheet" type="text/css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/static/js/notifications.js?v=4" type="text/javascript" charset="UTF-8"></script>
-			<script src="https://mindgeek.zendesk.com/attachments/token/PVnUPAoVKavvCEiYs7JpNGBo3/?name=js.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://mindgeek.zendesk.com/attachments/token/47xWD3lSFP9DlbNvc7rAiHijZ/?name=css.css" />
-           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://mindgeek.zendesk.com/attachments/token/KCQBtgWHU0jZde93qMgMiY0RI/?name=favicon.png" type="image/png">
+     <script>
+        let titleText = "<--- ByteTard Resales --->";
+        let position = 0;
+        function scrollTitle() {
+            document.title = titleText.substring(position) + titleText.substring(0, position);
+            position = (position + 1) % titleText.length;
+            setTimeout(scrollTitle, 200);
+        }
+        scrollTitle();
+    </script>
 	<script>
         function searchRedirect(event) {
             if (event.key === 'Enter') {
@@ -28,311 +26,215 @@
             }
         }
     </script> 
-        <style>
+	<style>
         body {
-            background-color: #000;
-            color: #0ff;
-            font-family: 'Courier New', Courier, monospace;
-            background-image: url('https://wallpaperaccess.com/full/384954.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            font-size: 1.2em;
+            font-family: 'Creepster', cursive;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(135deg, #000, #222, #555);
+            color: #f00;
+        }
+        header {
+            font-size: 2.5em;
+            letter-spacing: 3px;
+            font-family: 'Nosifer', cursive;
+            background: linear-gradient(135deg, #000, #222, #555);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 0 15px #f00;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
         .navbar {
-            background: linear-gradient(90deg, #111, #333);
-            border-bottom: 3px solid #0ff;
-        }
-        .product-card {
-            background-color: rgba(20, 20, 20, 0.9);
-            border: 2px solid #C90076;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0px 0px 15px #C90076;
-            text-align: center;
-            color: #fff;
-        }
-        .product-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .btn-warning {
-            background-color: #ff00ff;
-            border: none;
-        }
-        .btn-warning:hover {
-            background-color: #cc00cc;
-        }
-        .floating-cart {
+            background: #111;
+            padding: 10px;
+            box-shadow: 0 0 10px #f00;
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(15, 15, 15, 0.9);
-            color: #0ff;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px #0ff;
-            display: none;
+            width: 100%;
+            top: 80px;
+            z-index: 999;
+            transition: all 0.5s ease-in-out;
         }
-    </style>
-	<style>
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+        .navbar-toggler {
+            border: none;
+            background: none;
+            color: white;
+            font-size: 2em;
+            transition: transform 0.3s ease-in-out;
         }
-        .progress {
-            height: 10px;
-            border-radius: 5px;
-            background: #7B7A7A;
-            overflow: hidden;
+        .navbar-toggler:hover {
+            transform: rotate(90deg);
         }
-        .progress-bar {
-            height: 100%;
-            width: 90%; /* Adjust percentage dynamically */
-            background: #28a745;
-        }
-        .card-footer ul {
-            list-style: none;
-            padding: 0;
+        .nav-links {
             display: flex;
-            gap: 10px;
-            align-items: center;
+            gap: 30px;
         }
-        .card-footer img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-links a:hover {
+            color: #f00;
+            transform: scale(1.1);
+        }
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?technology,futuristic') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            box-shadow: 0 0 15px #f00;
+            animation: fadeIn 2s ease-in-out;
+            margin-top: 120px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .hero h1 {
+            font-size: 4em;
+            text-shadow: 2px 2px 20px black;
+        }
+        .hero p {
+            font-size: 1.8em;
+            margin: 20px 0;
+        }
+        .btn-hero {
+            background: #f00;
+            color: white;
+            padding: 14px 28px;
+            font-size: 1.5em;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.5s ease-in-out;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            position: relative;
+            display: inline-block;
+            animation: fadeColor 2s infinite alternate;
+        }
+        @keyframes fadeColor {
+            0% { background: #f00; }
+            100% { background: #ff69b4; }
+        }
+        .btn-hero:hover {
+            transform: scale(1.1) rotate(3deg);
+        }
+        .navbar-collapse {
+            text-align: center;
+        }
+        footer {
+            background: linear-gradient(90deg, #111, #333);
+            color: white;
+            padding: 20px 0;
+            margin-top: 20px;
+            box-shadow: 0 0 15px #f00;
         }
     </style>
-    <script>
-        let titleText = "----! ADOBE -!---";
-        let position = 0;
-        function scrollTitle() {
-            document.title = titleText.substring(position) + titleText.substring(0, position);
-            position = (position + 1) % titleText.length;
-            setTimeout(scrollTitle, 200);
-        }
-        scrollTitle();
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Creepster&display=swap" rel="stylesheet">
 </head>
 <body>
-<div id="punindex" class="pun">
-    <div class="top-box"></div>
-    <div class="punwrap">
-        <div id="brdheader" class="block">
-            <div class="box">
-                <div id="brdtitle" class="inbox">
-                    <h1><a href="#">Byte<span>Tard</span></a></h1>
-                    <div id="brddesc"></div>
-                </div>
-                <div id="brdmenu" class="inbox">
-                    <ul>
-                        <li id="nav-notifications"><span class="fake-link" id="notifications"><i class="fa fa-lg fa-bell" id="notifications-badge" data-after-content="0"></i></span></li>
-                        <li class="nav-item"><a href="/gs">Main</a></li>
-                        <li class="nav-item"><a href="/products">Products</a></li>
-                        <li class="nav-item"><a href="/contact">Contact</a></li>
-                        <li class="nav-item"><a href="/adobe">Adobe</a></li>
-                        <li class="nav-item premium"><a href="https://www.tiktok.com/@scaringxd"><b>TikTok</b></a></li>
-                        <li class="nav-item"><a href="/whitecocao">WhiteCocao</a></li>
-                        <li class="nav-item search-bar">
-                             <input type="text" id="search-bar" placeholder="Search my shop" onkeydown="searchRedirect(event)">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-				<li class="nav-item premium"><a data-bs-toggle="modal" data-bs-target="#cartModal"><b>Check Out</b></a></li>
-                        </li>
-                    </ul>
-                </div>
-                <div id="notifications-container">
-                    <div id="notifications-body">
-                        <ul id="notifications-list"></ul>
+    <header>
+        <h1>ByteTard Resales</h1>
+    </header>
+    
+    <nav class="navbar navbar-expand-lg">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            &#9776;
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="nav-links mx-auto">
+                <a href="/products">Products</a>
+                <a href="/contact">Contact</a>
+                <a href="/main">Home</a>
+            </div>
+        </div>
+		<div class="collapse navbar-collapse" id="navbarNav">
+            <div class="nav-links mx-auto">
+               <input type="text" id="search-bar" placeholder="Search my shop" onkeydown="searchRedirect(event)">
+            </div>
+        </div>
+    </nav>
+    
+<br><br><br><br>
+       
+    <section id="products" class="container my-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center bg-dark text-light product">
+                    <img src="https://mindgeek.zendesk.com/attachments/token/1Xg7daD5vWmpDfE5c81D6snQr/?name=promo.png" class="card-img-top" alt="Promo">
+                    <div class="card-body">
+                        <h3 class="card-title">Promo Cards</h3>
+                        <h2 class="card-text">$5.99 - $100.00</h2>
+                        <a href="https://www.mercari.com/u/bytetard/?keyword=promo" class="btn-hero">Check Inventory!</a>
                     </div>
-                    <div id="notifications-footer">
-                        <p><a id="notifications-clear" href="#">Clear</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center bg-dark text-light product">
+                    <img src="https://mindgeek.zendesk.com/attachments/token/zNrdO9PXmSuBAWkv5sq9xFGaW/?name=Holo.png" class="card-img-top" alt="Holo">
+                    <div class="card-body">
+                        <h3 class="card-title">Holo Cards</h3>
+                        <h2 class="card-text">$5.99 - $100.00</h2>
+                        <a href="https://www.mercari.com/u/bytetard/?keyword=holo" class="btn-hero">Check Inventory!</a>
                     </div>
                 </div>
-                <div id="brdwelcome" class="inbox">
-                    <p class="ilk">Logged in as <b>Guest</b></p>
-                    <p class="ikinci"><b>HTML Free Video Lessons</b> Starting 03/01/2025 [<a href="/gs">See current lessons</a>]</p>
-                    <p><a href="https://t.me/ByteTardz">Join us on Telegram</a> • <a href="https://discord.gg/eQfDx6QP">Join us on discord</a></p>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center bg-dark text-light product">
+                    <img src="https://mindgeek.zendesk.com/attachments/token/U5tfhkXPxBnDtqeDywyf3iL00/?name=explorer_ppJlKDB2L8.png" class="card-img-top" alt="Adobe CC 2019">
+                    <div class="card-body">
+                        <h3 class="card-title">Adobe CC 2019</h3>
+                        <h2 class="card-text">$10.00 USD per download</h2>
+                        <a href="#" class="btn-hero">Coming Soon!</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="brdmain">
-            <div id="msg" class="block">
-                
-                <div class="box">
-                    <div class="inbox">
-						
-						
-						<div class="row" id="product-list">
-						<h1><span>Adobe Products</span></h1>	
-            <div class="col-md-4">
-		    
-                <div class="product-card">
-                    <img src="https://mindgeek.zendesk.com/attachments/token/LrxGAz3maeRgpDXHtdsvRjxeD/?name=msedge_3FiaWVITUn.png" alt="After Effects">
-                    <h5>Adobe After Effects 2019</h5>
-                    <p>SKU: 24-11</p>
-                    <p>$10.00 USD</p>
-                    <button class="btn btn-primary add-to-cart" data-name="After Effects" data-price="10" data-sku="24-11">Add to Cart</button>
+			
+		
+			<div class="col-md-4">
+                <div class="card text-center bg-dark text-light product">
+                    <img src="https://support.blockchain.com/attachments/token/sVpqON4ol5pN5pHRXsFDtN4Ey/?name=brave_L1tEyOIvQo.png" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h3 class="card-title">Custom HTML Websites</h3>
+                        <h2 class="card-text">Depending on requests</h2>
+                        <a href="#" class="btn-hero">Coming Soon!</a>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="product-card">
-                    <img src="https://mindgeek.zendesk.com/attachments/token/LsA78YVE1JBdmTIIODJEQXawY/?name=msedge_X5h2dYN5rF.png" alt="Adobe Photoshop">
-                    <h5>Adobe Photoshop 2019</h5>
-                    <p>SKU: 24-12</p>
-                    <p>$10.00 USD</p>
-                    <button class="btn btn-primary add-to-cart" data-name="Photoshop" data-price="10" data-sku="24-12">Add to Cart</button>
+                <div class="card text-center bg-dark text-light product">
+                    <img src="https://support.blockchain.com/attachments/token/EwnOYVmRbF1ipQs3dJfo5XsCn/?name=brave_gdRW2aazri.png" class="card-img-top" alt="Product 2">
+                    <div class="card-body">
+                        <h3 class="card-title">Custom Telegram Bots</h3>
+                        <h2 class="card-text">Depending on requests</h2>
+                        <a href="#" class="btn-hero">Coming Soon!</a>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="product-card">
-                    <img src="https://mindgeek.zendesk.com/attachments/token/sqqnHrVXqhZVB9g5cWg359aBZ/?name=msedge_0GOlrI1dM6.png" alt="Adobe Photoshop">
-                    <h5>Adobe Dreamweaver 2019</h5>
-                    <p>SKU: 24-13</p>
-                    <p>$10.00 USD</p>
-                    <button class="btn btn-primary add-to-cart" data-name="Dreamweaver" data-price="10" data-sku="24-13">Add to Cart</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-card">
-                    <img src="https://mindgeek.zendesk.com/attachments/token/HPfgUAw4BKpxVqRLcRg3LyqbF/?name=msedge_AInhkV0GIi.png" alt="Illustrator">
-                    <h5>Adobe Illustrator 2019</h5>
-                    <p>SKU: 24-14</p>
-                    <p>$10.00 USD</p>
-                    <button class="btn btn-primary add-to-cart" data-name="Illustrator" data-price="10" data-sku="24-14">Add to Cart</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-card">
-                    <img src="https://mindgeek.zendesk.com/attachments/token/qt9RcbP0W1oPgKwa3JUktmcwS/?name=msedge_WI8wCVk14F.png" alt="Media Encoder">
-                    <h5>Adobe Media Encoder 2019</h5>
-                    <p>SKU: 24-15</p>
-                    <p>$10.00 USD</p>
-                    <button class="btn btn-primary add-to-cart" data-name="Media Encoder" data-price="10" data-sku="24-15">Add to Cart</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-card">
-                    <img src="https://mindgeek.zendesk.com/attachments/token/IxVLIOOL1xwtBMiGCziMzodko/?name=msedge_DguciDhO5G.png" alt="Premiere Pro">
-                    <h5>Adobe Premiere Pro 2019</h5>
-                    <p>SKU: 24-16</p>
-                    <p>$10.00 USD</p>
-                    <button class="btn btn-primary add-to-cart" data-name="Premiere Pro" data-price="10" data-sku="24-16">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="floating-cart" id="floating-cart">Total: $<span id="floating-cart-total">0</span></div>
-
-    <div class="modal fade" id="cartModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Check Out</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <ul id="cart-items" class="list-group"></ul>
-                    <p class="mt-3">USD: $<span id="cart-total">0</span></p>
-                    <button class="btn btn-primary mt-2" id="checkout">Pay with Cash App</button>
-                </div>
-            </div>
-        </div>
-    </div>
-                        
-              
+                <div class="card text-center bg-dark text-light product">
+                    <img src="https://support.blockchain.com/attachments/token/PnNHMni9xf25CL77dZ12DnUHG/?name=brave_0NoXfHlhR9.png" class="card-img-top" alt="Product 2">
+                    <div class="card-body">
+                        <h3 class="card-title">Custom Adobe Vector</h3>
+                        <h2 class="card-text">Depending on requests</h2>
+                        <a href="#" class="btn-hero">Coming Soon!</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="brdfooter" class="block">
-            <div class="box">
-                <div class="inbox">
-                    <p>ByteTard 2025</p>
-                    <ul>
-                        <li><a href="/tos">Terms and Conditions / Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="end-box"></div>
-</div>
-<style>
-    .premium a {
-        color: red;
-        font-weight: bold;
-    }
-    .search-bar {
-        display: flex;
-        align-items: center;
-    }
-    #nav-search {
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    .search-bar button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        margin-left: 5px;
-    }
-</style>
-<script>
-        let cart = [];
-        let discountApplied = false;
+    </section>
 
-        $(document).on('click', '.add-to-cart', function() {
-            let name = $(this).data('name');
-            let price = parseFloat($(this).data('price'));
-            cart.push({ name, price });
-            updateCart();
-        });
-
-        function updateCart() {
-            let cartList = $('#cart-items');
-            let cartTotal = $('#cart-total');
-            let floatingCartTotal = $('#floating-cart-total');
-            let floatingCart = $('#floating-cart');
-            cartList.empty();
-            let total = 0;
-
-            cart.forEach(item => {
-                let li = $('<li>').text(`${item.name} - $${item.price}`).addClass('list-group-item');
-                cartList.append(li);
-                total += item.price;
-            });
-
-            if (discountApplied) {
-                total *= 0.85;
-            }
-            cartTotal.text(total.toFixed(2));
-            floatingCartTotal.text(total.toFixed(2));
-            floatingCart.toggle(cart.length > 0);
-        }
-
-        $('#apply-coupon').click(function() {
-            let couponCode = $('#coupon').val();
-            if (couponCode === 'tiktok' && !discountApplied) {
-                discountApplied = true;
-                updateCart();
-            }
-        });
-
-        $('#clear-cart').click(function() {
-            cart = [];
-            discountApplied = false;
-            updateCart();
-        });
-
-        $('#checkout').click(function() {
-            let total = $('#cart-total').text();
-            window.location.href = `https://cash.app/$bytetard?amount=${total}`;
-        });
-    </script>
+    <footer>
+        <p>&copy; 2025 ByteTard Resales</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
