@@ -195,6 +195,9 @@
                     <p>SKU: 24-13</p>
                     <p>$12.00 USD</p>
                     <a href="https://checkout.hoodpay.io/6a20e556-2673-4066-8746-aee48d281aa0"><button class="btn btn-primary add-to-cart">Add to Cart</button></a>
+			<button onclick="checkoutWithHoodpay()" style="background-color: #ff6f00; color: white; padding: 10px 20px; border: none; cursor: pointer; font-size: 16px;">
+    Checkout with Hoodpay
+</button>
                 </div>
             </div>
             <!--div class="col-md-4">
@@ -284,6 +287,20 @@
         margin-left: 5px;
     }
 </style>
+<script>
+  function checkoutWithHoodpay() {
+      // Replace with your Hoodpay checkout link
+      let hoodpayUrl = "https://checkout.hoodpay.io/584773cb-c117-4787-8793-39e5796eb46c";
+      
+      // If you have dynamic pricing, you can append query parameters
+      let amount = 10.00; // Replace with actual amount
+      let checkoutUrl = hoodpayUrl + "?amount=" + amount;
+
+      // Redirect user
+      window.open(checkoutUrl, "_blank");
+  }
+</script>
+
 
 </body>
 </html>
